@@ -102,7 +102,7 @@ export default function App() {
     setProxies([]);
 
     try {
-      const response = await fetch('https://proxy.webshare.io/api/v2/proxy/list/?mode=direct&page=1&page_size=100', {
+      const response = await fetch('/api/proxies', {
         method: 'GET',
         headers: {
           'Authorization': `Token ${apiKey.trim()}`
