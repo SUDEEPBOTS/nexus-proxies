@@ -93,7 +93,7 @@ export default function App() {
 
   const fetchProxies = async () => {
     if (!apiKey.trim()) {
-      setError('Error: API Key daalna zaroori hai!');
+      setError('Please provide a valid Webshare API Key.');
       return;
     }
 
@@ -114,12 +114,12 @@ export default function App() {
         const results = data.results || [];
         
         if (results.length === 0) {
-          setError('Koi Proxy nahi mili.');
+          setError('No proxies found for this API Key.');
         } else {
           setProxies(results);
         }
       } else if (response.status === 401) {
-        setError('Error: API Key galat hai.');
+        setError('Invalid Webshare API Key. Unauthorized.');
       } else {
         const text = await response.text();
         setError(`Error: ${response.status} - ${text}`);
